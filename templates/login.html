@@ -1,0 +1,47 @@
+{% include  'header.html' %}
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.rtl.min.css' %}"/>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-3 bg-info p-2 bg-opacity-10  ">
+            
+            <div class="col-md-4 bg-info p-2 text-black bg-opacity-25 mt-5 mx-auto">
+                <h3 class="text-center">Login</h3>
+                {% if errmsg %}
+                    <div class="alert alert-danger">
+                        {{errmsg}}
+                    </div>
+
+                {% endif %}
+                <form method="POST" action="/login">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="Input1" class="form-label"><strong>User name</strong></label>
+                        <input type="email" name="uname" class="form-control" id="Input1" placeholder="Enter User Name">
+                      </div><!-----username end-->
+                      <div class="mb-3">
+                        <label for="Input2" class="form-label"><strong>Password</strong></label>
+                        <input type="password" name="upass" class="form-control" id="Input2" placeholder="Enter Password">
+                      </div><!-----password ends-->
+                      
+                      <div class="mb-3">
+                        <input type="submit" class="btn btn-info" value="Login">
+                        Not a user? <a href="/register"  style="text-decoration: none;">Register</a>
+                      </div>
+                </form>
+            </div><!---Navigation column ends-->
+        </div><!--nAVIGATION row ends-->
+        
+
+    </div>
+
+    <script src="asset/js/bootstrap.min.js"></script>   
+</body>
+</html>

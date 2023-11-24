@@ -1,0 +1,42 @@
+.anchor{
+    text-decoration: none;
+}
+
+.checked {
+    color: orange;
+  }
+
+.btn-orange{
+    background-color: orange;
+}  
+
+
+.btn-pink{
+    background-color: pink;
+}
+
+.btn-lavender{
+    background-color: lavender;
+}
+
+.btn-white{
+    background-color: white;
+}
+
+.btn-greenyellow{
+    background-color: greenyellow;
+}
+
+.btn-violet{
+    background-color: violet;
+}
+
+.btn-margenta{
+    background-color: magenta;
+
+}
+
+.btn-brown{
+    background-color: brown;
+
+}

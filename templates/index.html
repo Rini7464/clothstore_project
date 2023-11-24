@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block 'main' %}
+<div class="row mt-3 bg-info p-2 text-dark bg-opacity-10">
+            <div class="col-md-4">
+              <h5>Categories</h5>
+              <hr>
+              <p><a class="anchor" href="/catfilter/1">Western wear</a></p>
+              <p><a class="anchor" href="/catfilter/2">Tops and Shirt</a></p>
+              <p><a class="anchor" href="/catfilter/3">Trouser and Jeans</a></p>
+              <p><a class="anchor" href="/catfilter/4">Saree</a></p>
+              <p><a class="anchor" href="/catfilter/5">Co_ords</a></p>
+              <p><a class="anchor" href="/catfilter/6">Salwar and Kurtis</a></p>
+
+              <h5> Price range</h5>
+                <hr>
+                <form action="/range">
+                <div class="mb-3">
+                  <label for="Input1" class="form-label">Min value</label>
+                  <input type="number" name="min" class="form-control" id="Input1" placeholder="Minimum value">
+                </div><!--minimum value-->
+
+                <div class="mb-3">
+                  <label for="Input2" class="form-label">Max value</label>
+                  <input type="number" name="max" class="form-control" id="Input2" placeholder="Maximum value">
+                </div><!--max value ends-->
+
+                <div class="mb-3">
+                  <input type="submit" value="submit" class="btn btn-info">
+                </div><!--submit button ends-->
+                </form>
+
+                <h5>Sort by price</h5>
+                <hr>
+                <p><a href="/sort/0" class="anchor" >Low to high</a></p>
+                <p><a href="/sort/1" class="anchor" >High to low</a></p>
+
+                
+                <h5>Sort by color</h5>
+                <hr>
+                <a class="btn btn-primary btn-large " href="colorfilter/Blue" role="button">Blue</a>
+                <a class="btn btn-danger" href="colorfilter/Red" role="button">Red</a>
+                <a class="btn btn-secondary" href="colorfilter/Grey" role="button">Grey</a>
+                <a class="btn btn-success" href="colorfilter/Green" role="button">Green</a>
+                <a class="btn btn-warning" href="colorfilter/Yellow" role="button">Yellow</a>
+                <a class="btn btn-dark" href="colorfilter/Black" role="button">Dark</a>
+                <a class="btn btn-orange mt-3 " href="colorfilter/Orange" role="button">Orange</a>
+                <a class="btn btn-pink mt-3" href="colorfilter/Pink" role="button">Pink</a>
+                <a class="btn btn-lavender mt-3" href="colorfilter/Lavender" role="button">Lavender</a>
+                <a class="btn btn-white mt-3" href="colorfilter/White" role="button">White</a>
+                <a class="btn btn-greenyellow mt-3" href="colorfilter/Light green" role="button">Light green</a>
+                <a class="btn btn-violet mt-3" href="colorfilter/Violet" role="button">Violet</a>
+                <a class="btn btn-margenta mt-3" href="colorfilter/Magenta" role="button">Magenta</a>
+                <a class="btn btn-brown mt-3" href="colorfilter/Brown" role="button">Brown</a>
+                <br><br>
+                <h5>Sort by Brands</h5>
+                <hr>
+                <p><a class="anchor" href="/brandfilter/All About You">All About You</a></p>
+                <p><a class="anchor" href="/brandfilter/SASSAFRAS">SASSAFRAS</a></p>
+                <p><a class="anchor" href="/brandfilter/Roadster">Roadster</a></p>
+                <p><a class="anchor" href="/brandfilter/Mast & Harbour">Mast & Harbour</a></p>
+                <p><a class="anchor" href="/brandfilter/Mitera">Mitera</a></p>
+                <p><a class="anchor" href="/brandfilter/MABISH by Sonal Jain">MABISH by Sonal Jain</a></p>
+                <p><a class="anchor" href="/brandfilter/Vishudh">Vishudh</a></p>
+                <p><a class="anchor" href="/brandfilter/AND">AND</a></p>
+
+
+                <h5>customer Review</h5>
+                <hr>
+                <p><span class="fa fa-star  text-warning "></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-white "></span><a class="anchor" href="#">4 & up</a></p>
+                <p><span class="fa fa-star  text-warning "><span class="fa fa-star  text-warning "><span class="fa fa-star  text-warning "></span><span class="fa fa-star text-white"><span class="fa fa-star text-white"></span><a class="anchor" href="#">3 & up</a></p>
+                <p><span class="fa fa-star  text-warning "><span class="fa fa-star  text-warning "></span><span class="fa fa-star text-white"></span><span class="fa fa-star text-white"></span><span class="fa fa-star text-white"></span><a class="anchor" href="#">2 & up</a></p>
+                <p><span class="fa fa-star text-warning"><span class="fa fa-star text-white"><span class="fa fa-star text-white"><span class="fa fa-star text-white"><span class="fa fa-star text-white"></span><a class="anchor" href="#">1 & up</a></p>
+            </div><!--filter section end-->
+
+            <div class="col-md-8">
+              <div class="row">
+                {% for x in products %}
+                <div class="col-md-4 mt-4">
+                    <div class="card" style="width: 100%;">
+                        <img src="{{x.pimage.url}}" class="card-img-top" alt="..." width="100%" height="250px">
+                        <div class="card-body">
+                          <h5 class="card-title">{{x.name}}</h5>
+                          <p class="card-text">{{x.price}}</p>
+                          {% if x.cat == 1 %}
+                          <p class="card-text">Western wear</p>
+                          {% elif x.cat == 2 %}
+                          <p class="card-text">Tops and Shirt</p>
+                          {% elif x.cat == 3 %}
+                          <p class="card-text">Trouser and Jeans</p>
+                          {% elif x.cat == 4 %}
+                          <p class="card-text">Saree</p>
+                          {% elif x.cat == 5 %}
+                          <p class="card-text">Co-Ords</p>
+                          {% else %}
+                          <p class="card-text">Salwar and Kurtis</p>
+                          {% endif %}
+                          <a href="/pdetails/{{x.id}}" class="btn btn-info">See Details</a>
+                        </div>
+                    </div>
+                </div><!--product 1 end-->  
+                {% endfor %}
+              </div>
+            </div><!--Product section ends-->
+          </div><!--product and filter section ends-->
+
+{% endblock 'main' %}

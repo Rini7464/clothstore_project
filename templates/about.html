@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static%}
+
+{% block 'main' %}
+<div class="about-section text-center bg-info p-2 bg-opacity-10">
+    <h1>About Us </h1>
+    <p>Jubilance the glory inside you</p>
+    
+  </div>
+<div class="row mt-5 bg-info bg-opacity-10">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'asset/images/ceo.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text">CEO and Founder</p>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-8">
+        <h5>If you would like to experience the best of online shopping for women and in India, you are at the right place. Jubilance is the ultimate destination 
+            for fashion and lifestyle, being host to a wide array of merchandise  of clothing. It is time to redefine your style statement with our treasure-trove of
+             trendy items. Our online store brings you the latest in designer products straight 
+            out of fashion houses. You can shop online at Jubilance from the comfort of your home and get your favourites delivered right to your doorstep.</h5>
+    </div>
+
+</div>
+
+
+
+
+{% endblock 'main' %}

@@ -1,0 +1,61 @@
+{% include  'header.html' %}
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'asset/css/bootstrap.rtl.min.css' %}"/>
+</head>
+<body>
+    <div class="container">
+        <div class="row-mt-3 bg-info p-2 bg-opacity-10  ">
+            <!--<div class="col-md-12">
+                <a href="/home" style="text-decoration: none;">Home</a>
+            </div>-->
+            <div class="col-md-4 bg-info p-2 text-black bg-opacity-25 mt-5 mx-auto">
+                <h3 class="text-center">Registration</h3>
+                {% if errmsg %}
+                    <div class="alert alert-danger">
+                        {{errmsg}}
+                    </div>
+
+                {% endif %}
+                <form method="POST" action="/register">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="Input1" class="form-label"><strong>User name</strong></label>
+                        <input type="email" name="uname" class="form-control" id="Input1" placeholder="Enter User Name" required>
+                      </div><!-----username end-->
+                      <div class="mb-3">
+                        <label for="Input2" class="form-label"><strong>Password</strong></label>
+                        <input type="password" name="upass" class="form-control" id="Input2" placeholder="Enter Password" required>
+                      </div><!-----password ends-->
+                      <div class="mb-3">
+                        <label for="Input3" class="form-label"><strong>Confirm Password</strong></label>
+                        <input type="password" name="ucpass" class="form-control" id="Input3" placeholder="Enter Password" required>
+                      </div><!-----confirm password ends-->
+                      <div class="mb-3">
+                        <input type="submit" class="btn btn-info" value="Registration">
+                        Already user? <a href="/login " style="text-decoration: none;">login</a>
+                      </div>
+                    {% if success %}
+                    <div class="alert alert-success">
+                        {{success}}
+                    </div>
+
+                    {% endif %}
+
+
+                </form>
+
+
+            </div><!---column ends-->
+
+        </div><!--row ends-->
+    </div>
+
+    <script src="{% static 'asset/js/bootstrap.min.js' %}"></script>   
+</body>
+</html>

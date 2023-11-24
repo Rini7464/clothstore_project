@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static%}
+
+{% block 'main' %}
+<div class="row mt-5">
+    {% for x in products %}
+    <div class="col-md-6">
+            <img src="{{x.pimage.url}}" width="100%"alt="">
+    </div>
+
+    <div class="col-md-6">
+        <p><strong>Product Name:</strong>&nbsp;&nbsp;&nbsp;{{x.name}}</p>
+        <p><strong>Price:</strong>&nbsp;&nbsp;&nbsp;{{x.price}}</p>
+         {% if x.cat == 1 %}
+         <p class="card-text">Western wear</p>
+         {% elif x.cat == 2 %}
+         <p class="card-text">Tops and Shirt</p>
+         {% elif x.cat == 3 %}
+         <p class="card-text">Trouser and Jeans</p>
+         {% elif x.cat == 4 %}
+         <p class="card-text">Saree</p>
+         {% elif x.cat == 5 %}
+         <p class="card-text">Co-Ords</p>
+         {% else %}
+         <p class="card-text">Salwar and Kurtis</p>
+         {% endif %}
+                          
+        <p><strong>Description:</strong>&nbsp;&nbsp;&nbsp;{{x.pdetails}}</p>
+        <p><strong>Color:</strong>&nbsp;&nbsp;&nbsp;{{x.color}}</p>
+        <br>
+        <a href="/addtocart/{{x.id}}"><button class="btn btn-info">Add to Cart</button></a>&nbsp;&nbsp;&nbsp;
+        <a href="/viewcart"><button class="btn btn-info">View Cart</button></a>&nbsp;&nbsp;&nbsp;
+        <a href="/home"><button class="btn btn-info">Shop More</button></a>&nbsp;&nbsp;&nbsp;
+        <br>
+        {% if success %}
+            <div class="alert alert-success">
+                {{success}}
+            </div>
+        {% endif %}    
+        {% if msg %}
+            <div class="alert alert-danger">
+                {{msg}}
+            </div>
+        {% endif %}   
+
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock 'main' %}

@@ -1,0 +1,44 @@
+h1{
+    color:red;
+}
+
+.login{
+    width: 382px;
+    overflow: hidden;
+    margin: auto;
+    margin: 20 0 0 450px;
+    padding: 80px;
+    background: #233846;
+    border-radius: 15px ;
+} 
+
+
+.btn-pink{
+    background-color:pink;
+}
+
+.btn-lavender{
+    background-color:lavender;
+}
+
+.btn-white{
+    background-color:white;
+}
+
+.btn-greenyellow{
+    background-color:greenyellow;
+}
+
+.btn-violet{
+    background-color:violet;
+}
+
+.btn-margenta{
+    background-color:magenta;
+
+}
+
+.btn-brown{
+    background-color:brown;
+
+}

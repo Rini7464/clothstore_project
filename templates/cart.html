@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<!------main starts--->
+<div class="row mt-5 ">
+    <div class="col-md-9">
+        {% for x in data%}
+        {% if forloop.counter == 1 %}
+        <h5 class="bg-info p-2 text-dark bg-opacity-25">Customer details</h5>
+        <p><strong>Name:</strong>&nbsp;&nbsp;&nbsp;{{x.uid.username}}</p>
+        <!--<p><strong>Mobile:</strong>&nbsp;&nbsp;&nbsp;9876543210</p>-->
+        <p><strong>Email:</strong>&nbsp;&nbsp;&nbsp;{{x.uid.email}}</p>
+        {% endif %}
+        {% endfor %}
+
+        {% for x in data %}
+        <div class="row mt-5 bg-info p-2 bg-opacity-10">
+            <div class="col-md-4">
+                    <img src="{{x.pid.pimage.url}}" width="50%" height="200px" alt="" />
+            </div>
+            <div class="col-md-8">
+                    <p><strong>Product Name:</strong>&nbsp;&nbsp;&nbsp;{{x.pid.name}}</p>
+                    <p><strong>Product Price:</strong>&nbsp;&nbsp;&nbsp;Rs. {{x.pid.price}}</p>
+                    {% if x.pid.cat == 1 %}
+                          <p><strong>Category:</strong>&nbsp;&nbsp;&nbsp;Western wear</p>
+                    {% elif x.pid.cat == 2 %}
+                          <p><strong>Category:</strong>&nbsp;&nbsp;&nbsp;Tops and Shirt</p>
+                    {% elif x.pid.cat == 3 %}
+                          <p><strong>Category:</strong>&nbsp;&nbsp;&nbsp;Trouser and Jeans</p>
+                    {% elif x.pid.cat == 4 %}
+                          <p><strong>Category:</strong>&nbsp;&nbsp;&nbsp;Saree</p>
+                    {% elif x.pid.cat == 5 %}
+                          <p><strong>Category:</strong>&nbsp;&nbsp;&nbsp;Co-Ords</p>
+                    {% else %}
+                          <p><strong>Category:</strong>&nbsp;&nbsp;&nbsp;Salwar and Kurtis</p>
+                          
+                    {% endif %}
+                    <p><strong>Product Detail:</strong>&nbsp;&nbsp;&nbsp;{{x.pid.pdetails}}</p>
+                    <p>
+                        <strong>QTY:</strong>
+                        <a href="/updateqty/0/{{x.id}}"><button CLASS="btn btn-info">-</button></a>
+                        <input type="number" value="{{x.qty}}">
+                        <a href="/updateqty/1/{{x.id}}"><button CLASS="btn btn-info">+</button></a>
+                    </p>
+                    <a href="/remove/{{x.id}}"><button class="btn btn-danger">Remove</button></a>&nbsp;&nbsp;&nbsp;       
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+    <!--Customer and product details-->
+    <div class="col-md-3">
+        <h5 class="bg-info p-2 text-dark bg-opacity-25"> Total amount</h5>
+        <p><strong>Total ({{n}} items):</strong>RS.{{total}}</p>
+        <hr>
+        <p><strong>Total amount:</strong>RS.{{total}}</p>
+        <a href="/placeorder"><button class="btn btn-info">Place Order</button></a>&nbsp;&nbsp;&nbsp;
+                    
+    </div>
+    <!--Total amount section ------>
+</div>
+
+
+<!------main ends----->
+
+
+
+{% endblock 'main' %}
